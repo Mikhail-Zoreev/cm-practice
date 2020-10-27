@@ -13,10 +13,12 @@ INCLUDEPATH += \
 
 SOURCES += \
     src/main.cpp \
-    src/mainwindow.cpp
+    src/mainwindow.cpp \
+    src/spline.cpp
 
 HEADERS += \
-    include/mainwindow.h
+    include/mainwindow.h \
+    include/spline.h
 
 FORMS += \
     ui/mainwindow.ui
