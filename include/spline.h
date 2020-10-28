@@ -21,11 +21,11 @@ public:
 
     void insert(const QPointF& point);
 
-    QPointF point(size_t index);
-    double a(size_t index);
-    double b(size_t index);
-    double c(size_t index);
-    double d(size_t index);
+    const std::vector<QPointF>& points() const;
+    const std::vector<double> a();
+    const std::vector<double> b();
+    const std::vector<double> c();
+    const std::vector<double> d();
 
 protected:
     void update();

@@ -1,5 +1,15 @@
 #include "spline.h"
 
+Spline::Spline()
+{
+
+}
+
+Spline::~Spline()
+{
+
+}
+
 void Spline::insert(const QPointF& point)
 {
     auto iterator = m_points.begin();
@@ -10,49 +20,29 @@ void Spline::insert(const QPointF& point)
     m_points.insert(iterator, point);
 }
 
-QPointF Spline::point(size_t index)
+const std::vector<QPointF>& Spline::points() const
 {
-    if (index >= m_points.size())
-    {
-        throw std::runtime_error("Wrong index");
-    }
-    return m_points[index];
+    return m_points;
 }
 
-double Spline::a(size_t index)
+const std::vector<double> Spline::a()
 {
-    if (index >= m_a.size())
-    {
-        throw std::runtime_error("Wrong index");
-    }
-    return m_a[index];
+    return m_a;
 }
 
-double Spline::b(size_t index)
+const std::vector<double> Spline::b()
 {
-    if (index >= m_b.size())
-    {
-        throw std::runtime_error("Wrong index");
-    }
-    return m_b[index];
+    return m_b;
 }
 
-double Spline::c(size_t index)
+const std::vector<double> Spline::c()
 {
-    if (index >= m_c.size())
-    {
-        throw std::runtime_error("Wrong index");
-    }
-    return m_c[index];
+    return m_c;
 }
 
-double Spline::d(size_t index)
+const std::vector<double> Spline::d()
 {
-    if (index >= m_d.size())
-    {
-        throw std::runtime_error("Wrong index");
-    }
-    return m_d[index];
+    return m_d;
 }
 
 void Spline::update()

@@ -32,3 +32,11 @@ SplineChart::~SplineChart()
     delete p_axis_x;
     delete p_axis_y;
 }
+
+void SplineChart::load(const Spline& spline)
+{
+    for (auto i = spline.points().begin(); i!= spline.points().end(); i++)
+    {
+        *p_points_series << *i;
+    }
+}

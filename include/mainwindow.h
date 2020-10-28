@@ -2,6 +2,7 @@
 
 #include <QMainWindow>
 
+#include "spline.h"
 #include "splinechart.h"
 
 QT_BEGIN_NAMESPACE

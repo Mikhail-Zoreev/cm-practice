@@ -5,8 +5,12 @@
 #include <QScatterSeries>
 #include <QValueAxis>
 
+#include "spline.h"
+
 class SplineChart : public QtCharts::QChart
 {
+    Q_OBJECT
+
 protected:
     QtCharts::QLineSeries    *p_spline_series;
     QtCharts::QScatterSeries *p_points_series;
@@ -17,4 +21,6 @@ protected:
 public:
     SplineChart(QGraphicsItem *parent = nullptr);
     ~SplineChart();
+
+    void load(const Spline& spline);
 };
