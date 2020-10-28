@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui charts
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -15,12 +15,12 @@ SOURCES += \
     src/main.cpp \
     src/mainwindow.cpp \
     src/spline.cpp \
-    src/view.cpp
+    src/splinechart.cpp
 
 HEADERS += \
     include/mainwindow.h \
     include/spline.h \
-    include/view.h
+    include/splinechart.h
 
 FORMS += \
     ui/mainwindow.ui
