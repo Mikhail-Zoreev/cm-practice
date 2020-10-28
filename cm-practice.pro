@@ -14,11 +14,13 @@ INCLUDEPATH += \
 SOURCES += \
     src/main.cpp \
     src/mainwindow.cpp \
-    src/spline.cpp
+    src/spline.cpp \
+    src/view.cpp
 
 HEADERS += \
     include/mainwindow.h \
-    include/spline.h
+    include/spline.h \
+    include/view.h
 
 FORMS += \
     ui/mainwindow.ui
@@ -27,3 +29,7 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    shaders/shader.frag \
+    shaders/shader.vert
