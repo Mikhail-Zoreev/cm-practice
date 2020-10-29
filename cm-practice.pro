@@ -14,16 +14,19 @@ INCLUDEPATH += \
 SOURCES += \
     src/main.cpp \
     src/mainwindow.cpp \
+    src/pointdialog.cpp \
     src/spline.cpp \
     src/splinechart.cpp
 
 HEADERS += \
     include/mainwindow.h \
+    include/pointdialog.h \
     include/spline.h \
     include/splinechart.h
 
 FORMS += \
-    ui/mainwindow.ui
+    ui/mainwindow.ui \
+    ui/pointdialog.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

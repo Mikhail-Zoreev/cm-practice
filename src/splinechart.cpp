@@ -23,6 +23,8 @@ SplineChart::SplineChart(QGraphicsItem  *parent) : QtCharts::QChart(parent)
     p_spline_series->attachAxis(p_axis_y);
     p_points_series->attachAxis(p_axis_x);
     p_points_series->attachAxis(p_axis_y);
+
+    min_x = max_x = min_y = max_y = 0;
 }
 
 SplineChart::~SplineChart()
@@ -35,8 +37,30 @@ SplineChart::~SplineChart()
 
 void SplineChart::load(const Spline& spline)
 {
+    p_points_series->clear();
     for (auto i = spline.points().begin(); i!= spline.points().end(); i++)
     {
         *p_points_series << *i;
+
+        if (i->x() < min_x)
+        {
+            min_x = i->x();
+        }
+        else if (i->x() > max_x)
+        {
+            max_x = i->x();
+        }
+        if (i->y() < min_y)
+        {
+            min_y = i->y();
+        }
+        else if (i->y() > max_y)
+        {
+            max_y = i->y();
+        }
     }
+
+    p_axis_x->setRange(min_x, max_x);
+    p_axis_y->setRange(min_y, max_y);
+
 }

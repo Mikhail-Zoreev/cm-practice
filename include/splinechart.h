@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QChart>
+
 #include <QLineSeries>
 #include <QScatterSeries>
 #include <QValueAxis>
@@ -18,8 +19,13 @@ protected:
     QtCharts::QValueAxis *p_axis_x;
     QtCharts::QValueAxis *p_axis_y;
 
+    qreal min_x;
+    qreal max_x;
+    qreal min_y;
+    qreal max_y;
+
 public:
-    SplineChart(QGraphicsItem *parent = nullptr);
+    explicit SplineChart(QGraphicsItem *parent = nullptr);
     ~SplineChart();
 
     void load(const Spline& spline);

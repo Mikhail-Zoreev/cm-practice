@@ -2,6 +2,7 @@
 
 #include <QMainWindow>
 
+#include "pointdialog.h"
 #include "spline.h"
 #include "splinechart.h"
 
@@ -15,11 +16,15 @@ class MainWindow : public QMainWindow
 
 private:
     SplineChart *p_chart;
+    Spline m_spline;
 
 public:
-    MainWindow(QWidget *parent = nullptr);
+    explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
 private:
     Ui::MainWindow *ui;
+
+private slots:
+    void showAddPointDialog();
 };
