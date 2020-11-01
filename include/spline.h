@@ -1,5 +1,6 @@
 #pragma once
 
+#include <array>
 #include <stdexcept>
 #include <vector>
 
@@ -31,5 +32,5 @@ protected:
     void update();
 
 private:
-    void tridiagonalMatrixAlgorithm();
+    void tridiagonalMatrixAlgorithm(const std::vector<double>& h);
 };

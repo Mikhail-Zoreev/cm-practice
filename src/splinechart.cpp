@@ -69,9 +69,9 @@ void SplineChart::load(const Spline& spline)
             for (qreal j = spline.points()[i - 1].x(); j < spline.points()[i].x(); j += (spline.points()[i].x() - spline.points()[i - 1].x()) / 100)
             {
                 double a = spline.a()[i];
-                double b = spline.a()[i];
-                double c = spline.a()[i];
-                double d = spline.a()[i];
+                double b = spline.b()[i];
+                double c = spline.c()[i];
+                double d = spline.d()[i];
                 double x = spline.points()[i].x();
                 double value = a + b * (j - x) + c * (j - x) * (j - x) + d * (j - x) * (j - x) * (j - x);
                 *p_spline_series << QPointF(j, value);
@@ -79,7 +79,9 @@ void SplineChart::load(const Spline& spline)
         }
     }
 
-    p_axis_x->setRange(min_x, max_x);
-    p_axis_y->setRange(min_y, max_y);
+    double delta_x = (max_x - min_x) * 0.1;
+    double delta_y = (max_y - min_y) * 0.1;
+    p_axis_x->setRange(min_x - delta_x, max_x + delta_x);
+    p_axis_y->setRange(min_y - delta_y, max_y + delta_y);
 
 }
