@@ -24,7 +24,8 @@ SplineChart::SplineChart(QGraphicsItem  *parent) : QtCharts::QChart(parent)
     p_points_series->attachAxis(p_axis_x);
     p_points_series->attachAxis(p_axis_y);
 
-    min_x = max_x = min_y = max_y = 0;
+    min_x = min_y = 10000;
+    max_x = max_y = -10000;
 }
 
 SplineChart::~SplineChart()
@@ -63,15 +64,15 @@ void SplineChart::load(const Spline& spline)
     p_spline_series->clear();
     if (spline.points().size() > 2)
     {
-        for (size_t i = 0; i < spline.points().size() - 1; i++)
+        for (size_t i = 1; i < spline.points().size(); i++)
         {
-            for (qreal j = spline.points()[i].x(); j < spline.points()[i + 1].x(); j += ( spline.points()[i + 1].x() - spline.points()[i].x()) / 100)
+            for (qreal j = spline.points()[i - 1].x(); j < spline.points()[i].x(); j += (spline.points()[i].x() - spline.points()[i - 1].x()) / 100)
             {
                 double a = spline.a()[i];
                 double b = spline.a()[i];
                 double c = spline.a()[i];
                 double d = spline.a()[i];
-                double x = spline.points()[i + 1].x();
+                double x = spline.points()[i].x();
                 double value = a + b * (j - x) + c * (j - x) * (j - x) + d * (j - x) * (j - x) * (j - x);
                 *p_spline_series << QPointF(j, value);
             }
