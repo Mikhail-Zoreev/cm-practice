@@ -28,5 +28,5 @@ public:
     explicit SplineChart(QGraphicsItem *parent = nullptr);
     ~SplineChart();
 
-    void load(const Spline& spline);
+    void load(const Spline& spline, int width);
 };

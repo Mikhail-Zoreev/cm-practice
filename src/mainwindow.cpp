@@ -25,6 +25,6 @@ void MainWindow::showAddPointDialog()
     if (dialog.result() == QDialog::Accepted)
     {
         m_spline.insert(dialog.resultPointF());
-        p_chart->load(m_spline);
+        p_chart->load(m_spline, ui->chart_view->width());
     }
 }

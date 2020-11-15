@@ -36,7 +36,7 @@ SplineChart::~SplineChart()
     delete p_axis_y;
 }
 
-void SplineChart::load(const Spline& spline)
+void SplineChart::load(const Spline& spline, int width)
 {
     p_points_series->clear();
     for (auto i = spline.points().begin(); i != spline.points().end(); i++)
@@ -64,12 +64,14 @@ void SplineChart::load(const Spline& spline)
     p_spline_series->clear();
     if (spline.aviable())
     {
+        double delta = (spline.points().rbegin()->x() - spline.points().begin()->x()) / width;
+
         for (size_t i = 1; i < spline.points().size(); i++)
         {
-            for (qreal j = spline.points()[i - 1].x(); j < spline.points()[i].x(); j += (spline.points()[i].x() - spline.points()[i - 1].x()) / 100)
+            for (qreal x = spline.points()[i - 1].x(); x < spline.points()[i].x(); x += delta)
             {
-                double value = spline.value(i, j);
-                *p_spline_series << QPointF(j, value);
+                double value = spline.value(i, x);
+                *p_spline_series << QPointF(x, value);
             }
         }
     }
