@@ -20,17 +20,17 @@ public:
     Spline();
     ~Spline();
 
+    bool aviable() const;
+
     void insert(const QPointF& point);
 
     const std::vector<QPointF>& points() const;
-    const std::vector<double> a() const;
-    const std::vector<double> b() const;
-    const std::vector<double> c() const;
-    const std::vector<double> d() const;
+
+    double value(size_t i, double x) const;
 
 protected:
     void update();
 
 private:
-    void tridiagonalMatrixAlgorithm(const std::vector<double>& h);
+    void tridiagonalMatrixAlgorithm();
 };
