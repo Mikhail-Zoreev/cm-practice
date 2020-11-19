@@ -36,6 +36,12 @@ SplineChart::~SplineChart()
     delete p_axis_y;
 }
 
+void SplineChart::clear()
+{
+    p_points_series->clear();
+    p_spline_series->clear();
+}
+
 void SplineChart::load(const Spline& spline, int width)
 {
     p_points_series->clear();

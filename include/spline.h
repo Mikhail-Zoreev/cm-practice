@@ -22,6 +22,8 @@ public:
 
     bool aviable() const;
 
+    void clear();
+
     void insert(const QPointF& point);
 
     const std::vector<QPointF>& points() const;

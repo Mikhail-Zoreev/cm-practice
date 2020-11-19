@@ -38,7 +38,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
@@ -54,10 +54,16 @@
     <bool>false</bool>
    </attribute>
    <addaction name="action_add_point"/>
+   <addaction name="action_clear"/>
   </widget>
   <action name="action_add_point">
    <property name="text">
     <string>Add point</string>
+   </property>
+  </action>
+  <action name="action_clear">
+   <property name="text">
+    <string>Clear</string>
    </property>
   </action>
  </widget>

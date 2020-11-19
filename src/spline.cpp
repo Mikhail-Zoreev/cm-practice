@@ -15,6 +15,15 @@ bool Spline::aviable() const
     return (m_points.size() > 3);
 }
 
+void Spline::clear()
+{
+    m_points.clear();
+    m_a.clear();
+    m_b.clear();
+    m_c.clear();
+    m_d.clear();
+}
+
 void Spline::insert(const QPointF& point)
 {
     auto iterator = m_points.begin();
