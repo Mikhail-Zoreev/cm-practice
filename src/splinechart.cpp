@@ -24,8 +24,11 @@ SplineChart::SplineChart(QGraphicsItem  *parent) : QtCharts::QChart(parent)
     p_points_series->attachAxis(p_axis_x);
     p_points_series->attachAxis(p_axis_y);
 
-    min_x = min_y = 10000;
-    max_x = max_y = -10000;
+    p_points_series->setPointLabelsVisible(true);
+    p_points_series->setMarkerSize(8);
+
+    min_x = min_y = static_cast<qreal>(std::numeric_limits<int64_t>::max());
+    max_x = max_y = static_cast<qreal>(std::numeric_limits<int64_t>::min());
 }
 
 SplineChart::~SplineChart()
@@ -53,7 +56,7 @@ void SplineChart::load(const Spline& spline, int width)
         {
             min_x = i->x();
         }
-        else if (i->x() > max_x)
+        if (i->x() > max_x)
         {
             max_x = i->x();
         }
@@ -61,7 +64,7 @@ void SplineChart::load(const Spline& spline, int width)
         {
             min_y = i->y();
         }
-        else if (i->y() > max_y)
+        if (i->y() > max_y)
         {
             max_y = i->y();
         }
@@ -82,8 +85,18 @@ void SplineChart::load(const Spline& spline, int width)
         }
     }
 
-    double delta_x = (max_x - min_x) * 0.1;
-    double delta_y = (max_y - min_y) * 0.1;
+    double delta_x, delta_y;
+    if (spline.points().size() != 1)
+    {
+        delta_x = (max_x - min_x) * 0.05;
+        delta_y = (max_y - min_y) * 0.05;
+    }
+    else
+    {
+        delta_x = 1;
+        delta_y = 1;
+    }
+
     p_axis_x->setRange(min_x - delta_x, max_x + delta_x);
     p_axis_y->setRange(min_y - delta_y, max_y + delta_y);
 
