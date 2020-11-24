@@ -2,6 +2,7 @@
 
 #include <QMainWindow>
 
+#include "helpdialog.h"
 #include "pointdialog.h"
 #include "spline.h"
 #include "splinechart.h"
@@ -29,4 +30,5 @@ private slots:
     void clearChart();
 
     void showAddPointDialog();
+    void showHelpDialog();
 };

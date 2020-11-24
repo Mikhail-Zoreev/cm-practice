@@ -55,6 +55,7 @@
    </attribute>
    <addaction name="action_add_point"/>
    <addaction name="action_clear"/>
+   <addaction name="action_help"/>
   </widget>
   <action name="action_add_point">
    <property name="text">
@@ -64,6 +65,11 @@
   <action name="action_clear">
    <property name="text">
     <string>Clear</string>
+   </property>
+  </action>
+  <action name="action_help">
+   <property name="text">
+    <string>Help</string>
    </property>
   </action>
  </widget>

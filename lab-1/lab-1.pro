@@ -12,6 +12,7 @@ INCLUDEPATH += \
     include
 
 SOURCES += \
+    src/helpdialog.cpp \
     src/main.cpp \
     src/mainwindow.cpp \
     src/pointdialog.cpp \
@@ -19,12 +20,14 @@ SOURCES += \
     src/splinechart.cpp
 
 HEADERS += \
+    include/helpdialog.h \
     include/mainwindow.h \
     include/pointdialog.h \
     include/spline.h \
     include/splinechart.h
 
 FORMS += \
+    ui/helpdialog.ui \
     ui/mainwindow.ui \
     ui/pointdialog.ui
 
