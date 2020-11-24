@@ -95,6 +95,7 @@ void Spline::tridiagonalMatrixAlgorithm()
         double denom_q = diagLower[i - 1] * p[i - 1] + diagMain[i];
         q[i] = (vec[i] - diagLower[i - 1] * q[i - 1]) / denom_q;
     }
+    m_c[0] = m_c[n] = 0;
     m_c[n - 1] = q[n - 2];
     for (size_t i = n - 2; i > 0; i--)
     {
@@ -106,6 +107,6 @@ void Spline::tridiagonalMatrixAlgorithm()
     {
         m_a[i] = m_points[i].y();
         m_b[i] = m_c[i] * h[i - 1] / 3 + m_c[i - 1] * h[i - 1] / 6 + ((m_points[i].y() - m_points[i - 1].y()) / h[i - 1]);
-        m_d[i] = m_c[i] - m_c[i - 1];
+        m_d[i] = (m_c[i] - m_c[i - 1]) / h[i - 1];
     }
 }
