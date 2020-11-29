@@ -26,6 +26,10 @@ void Spline::clear()
 
 void Spline::insert(const QPointF& point)
 {
+    if (std::find_if(m_points.begin(), m_points.end(), [point](const QPointF& temp){ return point.x() == temp.x(); }) != m_points.end())
+    {
+        throw std::logic_error("Point with same x coordinate already exists");
+    }
     auto iterator = m_points.begin();
     while (iterator != m_points.end() && iterator->x() < point.x())
     {

@@ -2,6 +2,8 @@
 
 #include <QMainWindow>
 
+#include <QMessageBox>
+
 #include "helpdialog.h"
 #include "pointdialog.h"
 #include "spline.h"

@@ -32,8 +32,15 @@ void MainWindow::showAddPointDialog()
     dialog.exec();
     if (dialog.result() == QDialog::Accepted)
     {
+        try
+        {
         m_spline.insert(dialog.resultPointF());
         p_chart->load(m_spline, ui->chart_view->width());
+        }
+        catch (const std::logic_error& error)
+        {
+            QMessageBox::warning(this, "Error", error.what());
+        }
     }
 }
 
