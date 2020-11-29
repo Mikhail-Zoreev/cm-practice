@@ -20,7 +20,7 @@ public:
     Spline();
     ~Spline();
 
-    bool aviable() const;
+    bool available() const;
 
     void clear();
 
