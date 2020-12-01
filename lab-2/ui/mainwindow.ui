@@ -28,7 +28,7 @@
      <number>6</number>
     </property>
     <item row="0" column="0">
-     <widget class="QFrame" name="frame">
+     <widget class="QFrame" name="frame_tool_bar">
       <property name="frameShape">
        <enum>QFrame::NoFrame</enum>
       </property>
@@ -73,7 +73,7 @@
      </widget>
     </item>
     <item row="1" column="0">
-     <widget class="QTableView" name="tableView"/>
+     <widget class="QTableView" name="table_equations_system"/>
     </item>
    </layout>
   </widget>
@@ -86,8 +86,20 @@
      <height>21</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="action_new_equations_system"/>
+   </widget>
+   <addaction name="menuFile"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="action_new_equations_system">
+   <property name="text">
+    <string>New equation system</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

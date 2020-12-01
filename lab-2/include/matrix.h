@@ -13,7 +13,6 @@ protected:
     std::vector<double> m_vector;
 
 public:
-    Matrix() = delete;
     Matrix(size_t size = 0);
     Matrix(const Matrix& matrix);
     Matrix(Matrix&& matrix);

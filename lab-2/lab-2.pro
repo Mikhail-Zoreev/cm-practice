@@ -12,16 +12,21 @@ INCLUDEPATH += \
     include
 
 SOURCES += \
+    src/equationssystemmodel.cpp \
     src/matrix.cpp \
     src/main.cpp \
-    src/mainwindow.cpp
+    src/mainwindow.cpp \
+    src/newequationssystemdialog.cpp
 
 HEADERS += \
+    include/equationssystemmodel.h \
     include/matrix.h \
-    include/mainwindow.h
+    include/mainwindow.h \
+    include/newequationssystemdialog.h
 
 FORMS += \
-    ui/mainwindow.ui
+    ui/mainwindow.ui \
+    ui/newequationssystemdialog.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
