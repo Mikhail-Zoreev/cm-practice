@@ -11,10 +11,10 @@ Column GaussMethodSolver::solve(const Matrix& A, const Column& b, double epsilon
         //TODO: Line swap
         for (i = j + 1; i < size; i++)
         {
-            alfa = A_copy(i, j) / A_copy(j, j);
+            alfa = A_copy(j, i) / A_copy(j, j);
             for (k = j; k < size; k++)
             {
-                A_copy(i, k) -= alfa * A_copy(j, k);
+                A_copy(k, i) -= alfa * A_copy(k, j);
             }
             b_copy[i] -= b_copy[j] * alfa;
         }
@@ -26,7 +26,7 @@ Column GaussMethodSolver::solve(const Matrix& A, const Column& b, double epsilon
         double sum = 0;
         for (j = i + 1; j < size; j++)
         {
-            sum += A_copy(i, j) * result[j];
+            sum += A_copy(j, i) * result[j];
         }
         result[i] = (b_copy[i] - sum) / A_copy(i, i);
     }

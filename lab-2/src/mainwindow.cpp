@@ -46,5 +46,5 @@ void MainWindow::solve()
     ui->table_solution->setVisible(true);
     p_solution_model->clear();
     p_solution_model->
-            push("Gauss", solver.solve(p_equations_system_model->matrix(), p_equations_system_model->column()));
+            push("Kramer", solver.solve(p_equations_system_model->matrix(), p_equations_system_model->column()));
 }

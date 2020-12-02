@@ -14,6 +14,7 @@ INCLUDEPATH += \
 SOURCES += \
     src/equationssystemmodel.cpp \
     src/gaussmethodsolver.cpp \
+    src/kramermethodsolver.cpp \
     src/matrix.cpp \
     src/main.cpp \
     src/mainwindow.cpp \
@@ -24,6 +25,7 @@ HEADERS += \
     include/equationssystemmodel.h \
     include/equationssystemsolver.h \
     include/gaussmethodsolver.h \
+    include/kramermethodsolver.h \
     include/matrix.h \
     include/mainwindow.h \
     include/newequationssystemdialog.h \

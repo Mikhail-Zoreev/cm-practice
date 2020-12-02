@@ -5,6 +5,7 @@
 #include "equationssystemmodel.h"
 #include "equationssystemsolver.h"
 #include "gaussmethodsolver.h"
+#include "kramermethodsolver.h"
 #include "newequationssystemdialog.h"
 #include "solutionmodel.h"
 
