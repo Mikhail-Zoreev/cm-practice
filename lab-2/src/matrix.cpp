@@ -21,6 +21,31 @@ Matrix::~Matrix()
     m_vector.clear();
 }
 
+double Matrix::determinant() const
+{
+    if (m_size < 2)
+    {
+        return (*this)(0, 0);
+    }
+    else if (m_size == 2)
+    {
+        return (*this)(0, 0) * (*this)(1, 1) - (*this)(0, 1) * (*this)(1, 0);
+    }
+    double result = 0;
+    for (size_t i = 0; i < m_size; i++)
+    {
+        Matrix temp = *this;
+        for (size_t j = 0; j < temp.m_size; j++)
+        {
+            temp.m_vector.erase(temp.m_vector.begin() + (temp.m_size - 1)* j);
+        }
+        temp.m_vector.erase(temp.m_vector.begin() + (temp.m_size - 1) * i,
+                            temp.m_vector.begin() + (temp.m_size - 1) * (i + 1));
+        temp.m_size -= 1;
+        result += pow(-1, static_cast<int>(i) + 2) * (*this)(0, i) * temp.determinant();
+    }
+    return result;
+}
 
 Column Matrix::operator*(const Column& column)
 {
@@ -60,7 +85,7 @@ double Matrix::operator()(size_t column, size_t row) const
     return m_vector[m_size * row + column];
 }
 
-double &Matrix::operator ()(size_t column, size_t row)
+double &Matrix::operator()(size_t column, size_t row)
 {
     return m_vector[m_size * row + column];
 }

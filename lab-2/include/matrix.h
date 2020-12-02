@@ -18,6 +18,8 @@ public:
     Matrix(Matrix&& matrix);
     ~Matrix();
 
+    double determinant() const;
+
     Column operator*(const Column& column);
 
     Matrix& operator=(const Matrix& matrix);

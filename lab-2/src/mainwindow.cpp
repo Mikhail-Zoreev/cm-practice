@@ -41,6 +41,7 @@ void MainWindow::newEquationsSystem()
 
 void MainWindow::solve()
 {
+    p_equations_system_model->matrix().determinant();
     GaussMethodSolver solver;
     ui->table_solution->setVisible(true);
     p_solution_model->clear();

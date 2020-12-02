@@ -35,7 +35,7 @@ QVariant EquationsSystemModel::data(const QModelIndex &index, int role) const
     {
         return QVariant();
     }
-    return (static_cast<size_t>(index.column()) < m_size) ? m_matrix(index.row(), index.column()) : m_column[index.row()];
+    return (static_cast<size_t>(index.column()) < m_size) ? m_matrix(index.column(), index.row()) : m_column[index.row()];
 }
 
 bool EquationsSystemModel::setData(const QModelIndex &index, const QVariant &value, int role)
@@ -50,7 +50,7 @@ bool EquationsSystemModel::setData(const QModelIndex &index, const QVariant &val
     {
         if (static_cast<size_t>(index.column()) < m_size)
         {
-            m_matrix(index.row(), index.column()) = new_value;
+            m_matrix(index.column(), index.row()) = new_value;
         }
         else
         {
