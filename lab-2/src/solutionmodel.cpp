@@ -23,6 +23,20 @@ void SolutionModel::push(const QString& header, const Column& solution)
 
 }
 
+void SolutionModel::clear()
+{
+    if (m_solutions.size() == 0)
+    {
+        return;
+    }
+    beginRemoveRows(QModelIndex(), 0, static_cast<int>(m_solutions[0].size()) - 1);
+    beginRemoveColumns(QModelIndex(), 0, static_cast<int>(m_solutions.size()) - 1);
+    m_headers.clear();
+    m_solutions.clear();
+    endRemoveColumns();
+    endRemoveRows();
+}
+
 int SolutionModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);

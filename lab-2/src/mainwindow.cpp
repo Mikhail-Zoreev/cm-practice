@@ -42,7 +42,8 @@ void MainWindow::newEquationsSystem()
 void MainWindow::solve()
 {
     GaussMethodSolver solver;
-    Column solution = solver.solve(p_equations_system_model->matrix(), p_equations_system_model->column());
     ui->table_solution->setVisible(true);
-    p_solution_model->push("Gauss", solution);
+    p_solution_model->clear();
+    p_solution_model->
+            push("Gauss", solver.solve(p_equations_system_model->matrix(), p_equations_system_model->column()));
 }

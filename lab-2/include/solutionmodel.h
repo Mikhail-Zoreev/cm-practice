@@ -21,6 +21,7 @@ public:
     ~SolutionModel() = default;
 
     void push(const QString& header, const Column& solution);
+    void clear();
 
 protected:
     int rowCount(const QModelIndex &parent) const override;
