@@ -3,7 +3,10 @@
 #include <QMainWindow>
 
 #include "equationssystemmodel.h"
+#include "equationssystemsolver.h"
+#include "gaussmethodsolver.h"
 #include "newequationssystemdialog.h"
+#include "solutionmodel.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -15,6 +18,7 @@ class MainWindow : public QMainWindow
 
 protected:
     EquationsSystemModel *p_equations_system_model;
+    SolutionModel *p_solution_model;
 
 public:
     MainWindow(QWidget *parent = nullptr);
@@ -25,4 +29,5 @@ private:
 
 protected slots:
     void newEquationsSystem();
+    void solve();
 };

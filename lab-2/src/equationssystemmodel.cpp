@@ -38,6 +38,34 @@ QVariant EquationsSystemModel::data(const QModelIndex &index, int role) const
     return (static_cast<size_t>(index.column()) < m_size) ? m_matrix(index.row(), index.column()) : m_column[index.row()];
 }
 
+bool EquationsSystemModel::setData(const QModelIndex &index, const QVariant &value, int role)
+{
+    if (role != Qt::EditRole)
+    {
+        return false;
+    }
+    bool ok = false;
+    double new_value = value.toDouble(&ok);
+    if (ok)
+    {
+        if (static_cast<size_t>(index.column()) < m_size)
+        {
+            m_matrix(index.row(), index.column()) = new_value;
+        }
+        else
+        {
+            m_column[index.row()] = new_value;
+        }
+        emit dataChanged(index, index);
+    }
+    return ok;
+}
+
+Qt::ItemFlags EquationsSystemModel::flags(const QModelIndex &index) const
+{
+    return QAbstractTableModel::flags(index) | Qt::ItemIsEditable;
+}
+
 QVariant EquationsSystemModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
     if (role != Qt::DisplayRole)

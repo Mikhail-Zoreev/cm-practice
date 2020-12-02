@@ -24,5 +24,5 @@ public:
     Matrix& operator=(Matrix&& matrix);
 
     double operator()(size_t column, size_t row) const;
-    const double& operator()(size_t column, size_t row);
+    double& operator()(size_t column, size_t row);
 };

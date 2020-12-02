@@ -60,7 +60,7 @@ double Matrix::operator()(size_t column, size_t row) const
     return m_vector[m_size * row + column];
 }
 
-const double &Matrix::operator ()(size_t column, size_t row)
+double &Matrix::operator ()(size_t column, size_t row)
 {
     return m_vector[m_size * row + column];
 }

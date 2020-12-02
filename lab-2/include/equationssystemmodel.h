@@ -17,7 +17,7 @@ protected:
     Column m_column;
 
 public:
-    EquationsSystemModel(size_t size,QObject *parent = nullptr);
+    EquationsSystemModel(size_t size, QObject *parent = nullptr);
 
     const Matrix &matrix() const;
     const Column &column() const;
@@ -26,5 +26,7 @@ protected:
     int rowCount(const QModelIndex &parent) const override;
     int columnCount(const QModelIndex &parent) const override;
     QVariant data(const QModelIndex &index, int role) const override;
+    bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole) override;
+    Qt::ItemFlags flags(const QModelIndex &index) const override;
     QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
 };

@@ -5,9 +5,16 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), p_equations_syste
 {
     ui->setupUi(this);
 
+    p_solution_model = new SolutionModel;
+
     ui->frame_tool_bar->setHidden(true);
+    ui->table_equations_system->setSelectionBehavior(QAbstractItemView::SelectItems);
+    ui->table_equations_system->setSelectionMode(QAbstractItemView::SingleSelection);
+    ui->table_solution->setModel(p_solution_model);
+    ui->table_solution->setHidden(true);
 
     connect(ui->action_new_equations_system, &QAction::triggered, this, &MainWindow::newEquationsSystem);
+    connect(ui->button_solve, &QAbstractButton::clicked, this, &MainWindow::solve);
 }
 
 MainWindow::~MainWindow()
@@ -30,4 +37,12 @@ void MainWindow::newEquationsSystem()
         ui->table_equations_system->setModel(p_equations_system_model);
         ui->frame_tool_bar->setVisible(true);
     }
+}
+
+void MainWindow::solve()
+{
+    GaussMethodSolver solver;
+    Column solution = solver.solve(p_equations_system_model->matrix(), p_equations_system_model->column());
+    ui->table_solution->setVisible(true);
+    p_solution_model->push("Gauss", solution);
 }

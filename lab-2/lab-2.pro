@@ -13,16 +13,21 @@ INCLUDEPATH += \
 
 SOURCES += \
     src/equationssystemmodel.cpp \
+    src/gaussmethodsolver.cpp \
     src/matrix.cpp \
     src/main.cpp \
     src/mainwindow.cpp \
-    src/newequationssystemdialog.cpp
+    src/newequationssystemdialog.cpp \
+    src/solutionmodel.cpp
 
 HEADERS += \
     include/equationssystemmodel.h \
+    include/equationssystemsolver.h \
+    include/gaussmethodsolver.h \
     include/matrix.h \
     include/mainwindow.h \
-    include/newequationssystemdialog.h
+    include/newequationssystemdialog.h \
+    include/solutionmodel.h
 
 FORMS += \
     ui/mainwindow.ui \
