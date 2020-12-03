@@ -8,6 +8,7 @@
 #include "gaussmethodsolver.h"
 #include "kramermethodsolver.h"
 #include "newequationssystemdialog.h"
+#include "seidelmethodsolver.h"
 #include "simpleiterationsmethodsolver.h"
 #include "solutionmodel.h"
 #include "upperrelaxationmethodsolver.h"

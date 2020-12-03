@@ -23,6 +23,7 @@ SOURCES += \
     src/main.cpp \
     src/mainwindow.cpp \
     src/newequationssystemdialog.cpp \
+    src/seidelmethodsolver.cpp \
     src/simpleiterationsmethodsolver.cpp \
     src/solutionmodel.cpp \
     src/upperrelaxationmethodsolver.cpp
@@ -39,6 +40,7 @@ HEADERS += \
     include/matrix.h \
     include/mainwindow.h \
     include/newequationssystemdialog.h \
+    include/seidelmethodsolver.h \
     include/simpleiterationsmethodsolver.h \
     include/solutionmodel.h \
     include/upperrelaxationmethodsolver.h
