@@ -8,6 +8,7 @@
 #include "gaussmethodsolver.h"
 #include "kramermethodsolver.h"
 #include "newequationssystemdialog.h"
+#include "simpleiterationsmethodsolver.h"
 #include "solutionmodel.h"
 
 QT_BEGIN_NAMESPACE

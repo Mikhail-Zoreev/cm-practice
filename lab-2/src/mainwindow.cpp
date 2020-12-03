@@ -45,9 +45,9 @@ void MainWindow::solve()
     dialog.setModal(true);
     dialog.exec();
     p_equations_system_model->matrix().determinant();
-    GaussMethodSolver solver;
+    SimpleIterationsMethodSolver solver;
     ui->table_solution->setVisible(true);
     p_solution_model->clear();
     p_solution_model->
-            push("Kramer", solver.solve(p_equations_system_model->matrix(), p_equations_system_model->column()));
+            push("Iter", solver.solve(p_equations_system_model->matrix(), p_equations_system_model->column(), dialog.resultColumn(), 0.1));
 }
