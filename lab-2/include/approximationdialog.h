@@ -21,6 +21,7 @@ public:
     ~ApproximationDialog();
 
     const Column &resultColumn() const;
+    double resultEpsilon() const;
 
 private:
     Ui::approximationdialog *ui;

@@ -35,7 +35,11 @@
     </widget>
    </item>
    <item row="2" column="1">
-    <widget class="QDoubleSpinBox" name="spinbox_epsilon"/>
+    <widget class="QDoubleSpinBox" name="spinbox_epsilon">
+     <property name="decimals">
+      <number>4</number>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>

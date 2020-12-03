@@ -23,6 +23,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), p_equations_syste
     {
         ui->combobox_method->addItem(QString::fromStdString(solver->name()));
     }
+    ui->combobox_method->addItem("All");
 
     connect(ui->action_new_equations_system, &QAction::triggered, this, &MainWindow::newEquationsSystem);
     connect(ui->button_solve, &QAbstractButton::clicked, this, &MainWindow::solve);
@@ -52,26 +53,55 @@ void MainWindow::newEquationsSystem()
 
 void MainWindow::solve()
 {
-    EquationsSystemSolver *solver = m_solvers[ui->combobox_method->currentIndex()];
-    Column column(p_equations_system_model->size());
-    if (solver->approximate())
+    p_solution_model->clear();
+    int index = ui->combobox_method->currentIndex();
+    if (index != static_cast<int>(m_solvers.size()))
     {
+        Column column(p_equations_system_model->size());
+        double epsilon = 0;
+        EquationsSystemSolver *solver = m_solvers[index];
+        if (solver->approximate())
+        {
+            ApproximationDialog dialog(p_equations_system_model->size());
+            dialog.setModal(true);
+            dialog.exec();
+            if(dialog.result() == QDialog::Accepted)
+            {
+                column  = dialog.resultColumn();
+                epsilon = dialog.resultEpsilon();
+            }
+            else
+            {
+                return;
+            }
+        }
+        ui->table_solution->setVisible(true);
+        p_solution_model->push(QString::fromStdString(solver->name()), solver->solve(p_equations_system_model->matrix(),
+                                                      p_equations_system_model->column(), column, epsilon));
+    }
+    else
+    {
+        Column column(p_equations_system_model->size());
+        double epsilon = 0;
         ApproximationDialog dialog(p_equations_system_model->size());
         dialog.setModal(true);
         dialog.exec();
         if(dialog.result() == QDialog::Accepted)
         {
             column = dialog.resultColumn();
+            epsilon = dialog.resultEpsilon();
         }
         else
         {
             return;
         }
+        ui->table_solution->setVisible(true);
+        for (auto solver : m_solvers)
+        {
+            p_solution_model->push(QString::fromStdString(solver->name()),
+                                   solver->solve(p_equations_system_model->matrix(), p_equations_system_model->column(),
+                                                 column, epsilon));
+        }
     }
 
-    p_equations_system_model->matrix().determinant();
-    ui->table_solution->setVisible(true);
-    p_solution_model->clear();
-    p_solution_model->push(QString::fromStdString(solver->name()), solver->solve(p_equations_system_model->matrix(),
-                                                  p_equations_system_model->column(), column, 0.1));
 }
