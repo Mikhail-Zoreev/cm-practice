@@ -1,6 +1,6 @@
 #include "kramermethodsolver.h"
 
-Column KramerMethodSolver::solve(const Matrix &A, const Column &b, double epsilon)
+Column KramerMethodSolver::solve(const Matrix& A, const Column& b, const Column&, double)
 {
     size_t size = b.size();
     Column temp, result;

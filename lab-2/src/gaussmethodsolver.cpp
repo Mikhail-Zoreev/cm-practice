@@ -1,6 +1,6 @@
 #include "gaussmethodsolver.h"
 
-Column GaussMethodSolver::solve(const Matrix& A, const Column& b, double epsilon)
+Column GaussMethodSolver::solve(const Matrix& A, const Column& b, const Column&, double)
 {
     Matrix A_copy = A;
     Column b_copy = b;

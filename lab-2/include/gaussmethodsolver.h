@@ -1,12 +1,12 @@
 #pragma once
 
-#include "equationssystemsolver.h"
+#include "accuratesolver.h"
 
-class GaussMethodSolver : public EquationsSystemSolver
+class GaussMethodSolver : public AccurateSolver
 {
 public:
     GaussMethodSolver() = default;
     ~GaussMethodSolver() = default;
 
-    Column solve(const Matrix& A, const Column& b, double epsilon = 0) override;
+    Column solve(const Matrix& A, const Column& b, const Column& x = Column(), double epsilon = 0) override;
 };

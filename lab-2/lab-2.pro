@@ -12,6 +12,8 @@ INCLUDEPATH += \
     include
 
 SOURCES += \
+    src/accuratesolver.cpp \
+    src/approximatesolver.cpp \
     src/equationssystemmodel.cpp \
     src/gaussmethodsolver.cpp \
     src/kramermethodsolver.cpp \
@@ -22,6 +24,8 @@ SOURCES += \
     src/solutionmodel.cpp
 
 HEADERS += \
+    include/accuratesolver.h \
+    include/approximatesolver.h \
     include/equationssystemmodel.h \
     include/equationssystemsolver.h \
     include/gaussmethodsolver.h \
