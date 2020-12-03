@@ -20,6 +20,7 @@ public:
     explicit EquationsSystemModel(size_t size, QObject *parent = nullptr);
     ~EquationsSystemModel() = default;
 
+    size_t size() const;
     const Matrix &matrix() const;
     const Column &column() const;
 

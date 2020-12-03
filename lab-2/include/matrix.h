@@ -18,6 +18,15 @@ public:
     Matrix(Matrix&& matrix);
     ~Matrix();
 
+    size_t size() const;
+
+    bool diagonalPredominant() const;
+
+    bool zeroOnDiagonal() const;
+
+    static bool converge(const Column& xk, const Column xkp, double epsilon);
+    static double secondVectorNorm(const Column& vector);
+
     double determinant() const;
 
     Column operator*(const Column& column);

@@ -7,6 +7,11 @@ EquationsSystemModel::EquationsSystemModel(size_t size, QObject *parent) : QAbst
 
 }
 
+size_t EquationsSystemModel::size() const
+{
+    return m_size;
+}
+
 const Matrix &EquationsSystemModel::matrix() const
 {
     return m_matrix;

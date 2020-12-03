@@ -21,6 +21,61 @@ Matrix::~Matrix()
     m_vector.clear();
 }
 
+size_t Matrix::size() const
+{
+    return m_size;
+}
+
+bool Matrix::diagonalPredominant() const
+{
+    for (size_t i = 0; i < m_size; i++)
+    {
+        double sum = 0;
+        for (size_t j = 0; j < m_size; j++)
+        {
+            sum += abs((*this)(j, i));
+        }
+        sum -= abs((*this)(i, i));
+        if (sum > (*this)(i, i))
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool Matrix::zeroOnDiagonal() const
+{
+    for (size_t i = 0; i < m_size; i++)
+    {
+        if ((*this)(i, i) == 0)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+bool Matrix::converge(const Column &xk, const Column xkp, double epsilon)
+{
+    double norm = 0;
+    for (size_t i = 0; i < xk.size(); i++)
+    {
+        norm += (xk[i] - xkp[i]) * (xk[i] - xkp[i]);
+    }
+    return sqrt(norm) < epsilon;
+}
+
+double Matrix::secondVectorNorm(const Column& vector)
+{
+    double sum = 0;
+    for (auto value : vector)
+    {
+        sum += pow(value, 2);
+    }
+    return sqrt(sum);
+}
+
 double Matrix::determinant() const
 {
     if (m_size < 2)
