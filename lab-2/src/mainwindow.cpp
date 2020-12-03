@@ -45,7 +45,7 @@ void MainWindow::solve()
     dialog.setModal(true);
     dialog.exec();
     p_equations_system_model->matrix().determinant();
-    SeidelMethodSolver solver;
+    LUDecompositionMethodSolver solver;
     ui->table_solution->setVisible(true);
     p_solution_model->clear();
     p_solution_model->

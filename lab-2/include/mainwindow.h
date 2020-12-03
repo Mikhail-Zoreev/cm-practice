@@ -7,6 +7,7 @@
 #include "equationssystemsolver.h"
 #include "gaussmethodsolver.h"
 #include "kramermethodsolver.h"
+#include "ludecompositionmethodsolver.h"
 #include "newequationssystemdialog.h"
 #include "seidelmethodsolver.h"
 #include "simpleiterationsmethodsolver.h"

@@ -19,6 +19,7 @@ SOURCES += \
     src/equationssystemmodel.cpp \
     src/gaussmethodsolver.cpp \
     src/kramermethodsolver.cpp \
+    src/ludecompositionmethodsolver.cpp \
     src/matrix.cpp \
     src/main.cpp \
     src/mainwindow.cpp \
@@ -37,6 +38,7 @@ HEADERS += \
     include/equationssystemsolver.h \
     include/gaussmethodsolver.h \
     include/kramermethodsolver.h \
+    include/ludecompositionmethodsolver.h \
     include/matrix.h \
     include/mainwindow.h \
     include/newequationssystemdialog.h \
