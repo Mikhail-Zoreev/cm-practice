@@ -2,25 +2,19 @@
 
 #include <QAbstractTableModel>
 
-#include <string>
-
 #include "matrix.h"
 
-
-class EquationsSystemModel : public QAbstractTableModel
+class ApproximationTableModel : public QAbstractTableModel
 {
-    Q_OBJECT
+    Q_OBJECT;
 
 protected:
-    size_t m_size;
-    Matrix m_matrix;
     Column m_column;
 
 public:
-    explicit EquationsSystemModel(size_t size, QObject *parent = nullptr);
-    ~EquationsSystemModel() = default;
+    explicit ApproximationTableModel(size_t size, QObject *parent = nullptr);
+    ~ApproximationTableModel() = default;
 
-    const Matrix &matrix() const;
     const Column &column() const;
 
 protected:

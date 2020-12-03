@@ -41,6 +41,9 @@ void MainWindow::newEquationsSystem()
 
 void MainWindow::solve()
 {
+    ApproximationDialog dialog(p_equations_system_model->column().size());
+    dialog.setModal(true);
+    dialog.exec();
     p_equations_system_model->matrix().determinant();
     GaussMethodSolver solver;
     ui->table_solution->setVisible(true);

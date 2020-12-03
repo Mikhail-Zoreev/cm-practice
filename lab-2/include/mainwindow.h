@@ -2,6 +2,7 @@
 
 #include <QMainWindow>
 
+#include "approximationdialog.h"
 #include "equationssystemmodel.h"
 #include "equationssystemsolver.h"
 #include "gaussmethodsolver.h"

@@ -20,13 +20,13 @@ const Column &EquationsSystemModel::column() const
 int EquationsSystemModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
-    return m_size;
+    return static_cast<int>(m_size);
 }
 
 int EquationsSystemModel::columnCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
-    return m_size + 1;
+    return static_cast<int>(m_size) + 1;
 }
 
 QVariant EquationsSystemModel::data(const QModelIndex &index, int role) const

@@ -14,6 +14,8 @@ INCLUDEPATH += \
 SOURCES += \
     src/accuratesolver.cpp \
     src/approximatesolver.cpp \
+    src/approximationdialog.cpp \
+    src/approximationtablemodel.cpp \
     src/equationssystemmodel.cpp \
     src/gaussmethodsolver.cpp \
     src/kramermethodsolver.cpp \
@@ -26,6 +28,8 @@ SOURCES += \
 HEADERS += \
     include/accuratesolver.h \
     include/approximatesolver.h \
+    include/approximationdialog.h \
+    include/approximationtablemodel.h \
     include/equationssystemmodel.h \
     include/equationssystemsolver.h \
     include/gaussmethodsolver.h \
@@ -36,6 +40,7 @@ HEADERS += \
     include/solutionmodel.h
 
 FORMS += \
+    ui/approximationdialog.ui \
     ui/mainwindow.ui \
     ui/newequationssystemdialog.ui
 
