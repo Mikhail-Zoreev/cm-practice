@@ -24,7 +24,8 @@ SOURCES += \
     src/mainwindow.cpp \
     src/newequationssystemdialog.cpp \
     src/simpleiterationsmethodsolver.cpp \
-    src/solutionmodel.cpp
+    src/solutionmodel.cpp \
+    src/upperrelaxationmethodsolver.cpp
 
 HEADERS += \
     include/accuratesolver.h \
@@ -39,7 +40,8 @@ HEADERS += \
     include/mainwindow.h \
     include/newequationssystemdialog.h \
     include/simpleiterationsmethodsolver.h \
-    include/solutionmodel.h
+    include/solutionmodel.h \
+    include/upperrelaxationmethodsolver.h
 
 FORMS += \
     ui/approximationdialog.ui \

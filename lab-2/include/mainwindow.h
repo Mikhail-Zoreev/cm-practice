@@ -10,6 +10,7 @@
 #include "newequationssystemdialog.h"
 #include "simpleiterationsmethodsolver.h"
 #include "solutionmodel.h"
+#include "upperrelaxationmethodsolver.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
