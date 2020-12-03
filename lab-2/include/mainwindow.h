@@ -2,6 +2,8 @@
 
 #include <QMainWindow>
 
+#include <vector>
+
 #include "approximationdialog.h"
 #include "equationssystemmodel.h"
 #include "equationssystemsolver.h"
@@ -25,6 +27,8 @@ class MainWindow : public QMainWindow
 protected:
     EquationsSystemModel *p_equations_system_model;
     SolutionModel *p_solution_model;
+
+    std::vector<EquationsSystemSolver*> m_solvers;
 
 public:
     MainWindow(QWidget *parent = nullptr);

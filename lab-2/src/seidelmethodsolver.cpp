@@ -32,3 +32,8 @@ Column SeidelMethodSolver::solve(const Matrix &A, const Column &b, const Column 
     while (!Matrix::converge(x_current, x_previous, epsilon));
     return x_current;
 }
+
+std::string SeidelMethodSolver::name() const
+{
+    return "Seidel";
+}

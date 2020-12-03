@@ -60,3 +60,8 @@ Column LUDecompositionMethodSolver::solve(const Matrix &A, const Column &b, cons
 
     return result;
 }
+
+std::string LUDecompositionMethodSolver::name() const
+{
+    return "LU decomposition";
+}

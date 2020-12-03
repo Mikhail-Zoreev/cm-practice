@@ -24,3 +24,8 @@ Column KramerMethodSolver::solve(const Matrix& A, const Column& b, const Column&
     }
     return result;
 }
+
+std::string KramerMethodSolver::name() const
+{
+    return "Kramer";
+}

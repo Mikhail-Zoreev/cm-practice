@@ -32,3 +32,8 @@ Column GaussMethodSolver::solve(const Matrix& A, const Column& b, const Column&,
     }
     return result;
 }
+
+std::string GaussMethodSolver::name() const
+{
+    return "Gauss";
+}

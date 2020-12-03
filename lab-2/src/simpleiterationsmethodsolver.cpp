@@ -32,3 +32,9 @@ Column SimpleIterationsMethodSolver::solve(const Matrix &A, const Column &b, con
     while (!Matrix::converge(x_current, x_previous, epsilon));
     return x_current;
 }
+
+
+std::string SimpleIterationsMethodSolver::name() const
+{
+    return "Simple iterations";
+}
