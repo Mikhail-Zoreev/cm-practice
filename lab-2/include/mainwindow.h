@@ -3,6 +3,9 @@
 #include <QMainWindow>
 
 #include <vector>
+#include <stdexcept>
+
+#include <QMessageBox>
 
 #include "approximationdialog.h"
 #include "equationssystemmodel.h"

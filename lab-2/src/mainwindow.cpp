@@ -75,9 +75,19 @@ void MainWindow::solve()
                 return;
             }
         }
-        ui->table_solution->setVisible(true);
-        p_solution_model->push(QString::fromStdString(solver->name()), solver->solve(p_equations_system_model->matrix(),
-                                                      p_equations_system_model->column(), column, epsilon));
+        try
+        {
+            p_solution_model->push(QString::fromStdString(solver->name()),
+                                   solver->solve(p_equations_system_model->matrix(), p_equations_system_model->column(),
+                                                 column, epsilon));
+            ui->table_solution->setVisible(true);
+        }
+        catch (std::runtime_error& error)
+        {
+            QMessageBox::warning(this, "Error", error.what());
+            return;
+        }
+
     }
     else
     {
@@ -98,9 +108,17 @@ void MainWindow::solve()
         ui->table_solution->setVisible(true);
         for (auto solver : m_solvers)
         {
-            p_solution_model->push(QString::fromStdString(solver->name()),
-                                   solver->solve(p_equations_system_model->matrix(), p_equations_system_model->column(),
-                                                 column, epsilon));
+            try
+            {
+                p_solution_model->push(QString::fromStdString(solver->name()),
+                                       solver->solve(p_equations_system_model->matrix(),
+                                                     p_equations_system_model->column(), column, epsilon));
+            }
+            catch (std::runtime_error& error)
+            {
+                QMessageBox::warning(this, "Error", error.what());
+                return;
+            }
         }
     }
 

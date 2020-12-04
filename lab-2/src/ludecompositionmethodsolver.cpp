@@ -4,7 +4,7 @@ Column LUDecompositionMethodSolver::solve(const Matrix &A, const Column &b, cons
 {
     if (A(0, 0) == 0)
     {
-        throw "Matrix A[0][0] equals to zero";
+        throw std::runtime_error("Matrix A[0][0] equals to zero");
     }
     size_t size = A.size();
     Matrix L(size), U(size);
