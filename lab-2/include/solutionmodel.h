@@ -1,7 +1,7 @@
 #pragma once
 
 #include <QAbstractTableModel>
-
+#include <chrono>
 #include <vector>
 
 #include <QString>
@@ -15,12 +15,13 @@ class SolutionModel : public QAbstractTableModel
 protected:
     std::vector<QString> m_headers;
     std::vector<Column> m_solutions;
+    std::vector<int64_t> m_durations;
 
 public:
     SolutionModel(QObject *parent = nullptr);
     ~SolutionModel() = default;
 
-    void push(const QString& header, const Column& solution);
+    void push(const QString& header, const Column& solution, int64_t duration);
     void clear();
 
 protected:

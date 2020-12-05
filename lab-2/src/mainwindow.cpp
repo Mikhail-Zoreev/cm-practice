@@ -77,9 +77,13 @@ void MainWindow::solve()
         }
         try
         {
-            p_solution_model->push(QString::fromStdString(solver->name()),
-                                   solver->solve(p_equations_system_model->matrix(), p_equations_system_model->column(),
-                                                 column, epsilon));
+            auto begin_time = std::chrono::steady_clock::now();
+            Column result = solver->solve(p_equations_system_model->matrix(), p_equations_system_model->column(),
+                                          column, epsilon);
+            auto end_time = std::chrono::steady_clock::now();
+            p_solution_model->push(QString::fromStdString(solver->name()), result,
+                                   std::chrono::duration_cast<std::chrono::microseconds>(end_time
+                                                                                         - begin_time).count());
             ui->table_solution->setVisible(true);
         }
         catch (std::runtime_error& error)
@@ -110,9 +114,13 @@ void MainWindow::solve()
         {
             try
             {
-                p_solution_model->push(QString::fromStdString(solver->name()),
-                                       solver->solve(p_equations_system_model->matrix(),
-                                                     p_equations_system_model->column(), column, epsilon));
+                auto begin_time = std::chrono::steady_clock::now();
+                Column result = solver->solve(p_equations_system_model->matrix(), p_equations_system_model->column(),
+                                              column, epsilon);
+                auto end_time = std::chrono::steady_clock::now();
+                p_solution_model->push(QString::fromStdString(solver->name()), result,
+                                       std::chrono::duration_cast<std::chrono::microseconds>(end_time
+                                                                                             - begin_time).count());
             }
             catch (std::runtime_error& error)
             {
