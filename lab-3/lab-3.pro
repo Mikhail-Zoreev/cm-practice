@@ -14,12 +14,16 @@ INCLUDEPATH += \
 SOURCES += \
     src/main.cpp \
     src/mainwindow.cpp \
-    src/sampleequationsystem.cpp
+    src/rkmethodsolver.cpp \
+    src/sampleequationsystem.cpp \
+    src/solutiontaablemodel.cpp
 
 HEADERS += \
     include/abstractequationsystem.h \
     include/mainwindow.h \
-    include/sampleequationsystem.h
+    include/rkmethodsolver.h \
+    include/sampleequationsystem.h \
+    include/solutiontablemodel.h
 
 FORMS += \
     ui/mainwindow.ui
