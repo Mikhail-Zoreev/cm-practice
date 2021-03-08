@@ -33,6 +33,10 @@ QVariant SolutionTableModel::headerData(int column, Qt::Orientation orientatioln
     {
         return QVariant();
     }
+    if (orientatioln == Qt::Vertical)
+    {
+        return column + 1;
+    }
     switch (column) {
         case 0:
         {

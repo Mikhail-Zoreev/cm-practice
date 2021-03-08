@@ -10,7 +10,7 @@ RKMethodSolver::RKMethodSolver(AbstractEquationSystem *system)
 std::vector<std::array<double, 4>> RKMethodSolver::solve(double a, double b, int iterations,
                                                          const std::array<double, 3>& initial_conditions)
 {
-    if (iterations)
+    if (iterations <= 0)
     {
         throw std::runtime_error("Count of iterations must be greater than zero");
     }
@@ -29,7 +29,7 @@ std::vector<std::array<double, 4>> RKMethodSolver::solve(double a, double b, int
     double z_previous = initial_conditions[2];
     double x, y, z;
 
-    for (int i = 1; i < iterations; i++)
+    for (int i = 1; i <= iterations; i++)
     {
         K[0][0] = h * p_system->f1(x_previous, y_previous, z_previous);
         K[1][0] = h * p_system->f2(x_previous, y_previous, z_previous);
