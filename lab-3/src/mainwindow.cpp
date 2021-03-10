@@ -5,6 +5,7 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->box_solution->setHidden(true);
 
     p_system = new SampleEquationSystem;
     p_solution = nullptr;
@@ -30,6 +31,11 @@ void MainWindow::solve()
     };
 
     RKMethodSolver solver(p_system);
+    p_accurate_solution = new SampleAccurateSolution(a, initial_conditions);
+    ui->label_accurate_x->setText(p_accurate_solution->f1Str());
+    ui->label_accurate_y->setText(p_accurate_solution->f2Str());
+    ui->label_accurate_z->setText(p_accurate_solution->f3Str());
+    ui->box_solution->setVisible(true);
     try {
         m_solution_vector = solver.solve(a, b, n, initial_conditions);
     }
@@ -50,6 +56,6 @@ void MainWindow::solve()
 
 void MainWindow::showPlot()
 {
-    PlotDialog dialog(m_solution_vector);
+    PlotDialog dialog(m_solution_vector, p_accurate_solution);
     dialog.exec();
 }

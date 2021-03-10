@@ -6,6 +6,7 @@
 #include <vector>
 
 #include "qcustomplot.h"
+#include "abstractaccuratesolution.h"
 
 namespace Ui {
     class PlotDialog;
@@ -18,7 +19,7 @@ private:
     Ui::PlotDialog *ui;
 
 public:
-    explicit PlotDialog(const std::vector<std::array<double, 4>>& solution, QWidget *parent = nullptr);
+    explicit PlotDialog(const std::vector<std::array<double, 4>>& solution, AbstractAccurateSolution* accurate_solution, QWidget *parent = nullptr);
     ~PlotDialog();
 };
 

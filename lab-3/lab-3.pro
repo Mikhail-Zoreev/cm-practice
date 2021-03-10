@@ -14,19 +14,23 @@ INCLUDEPATH += \
 
 
 SOURCES += \
+    src/abstractaccuratesolution.cpp \
     src/main.cpp \
     src/mainwindow.cpp \
     src/plotdialog.cpp \
     src/rkmethodsolver.cpp \
+    src/sampleaccuratesolution.cpp \
     src/sampleequationsystem.cpp \
     src/solutiontaablemodel.cpp \
     thirdparty/qcustomplot/qcustomplot.cpp
 
 HEADERS += \
+    include/abstractaccuratesolution.h \
     include/abstractequationsystem.h \
     include/mainwindow.h \
     include/plotdialog.h \
     include/rkmethodsolver.h \
+    include/sampleaccuratesolution.h \
     include/sampleequationsystem.h \
     include/solutiontablemodel.h \
     thirdparty/qcustomplot/qcustomplot.h
