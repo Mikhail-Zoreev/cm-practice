@@ -10,6 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
     p_solution = nullptr;
 
     connect(ui->button_solve, &QPushButton::clicked, this, &MainWindow::solve);
+    connect(ui->button_showplot, &QPushButton::clicked, this, &MainWindow::showPlot);
 }
 
 MainWindow::~MainWindow()
@@ -44,4 +45,11 @@ void MainWindow::solve()
     }
     p_solution = new SolutionTableModel(m_solution_vector, ui->table_solution);
     ui->table_solution->setModel(p_solution);
+    ui->button_showplot->setEnabled(true);
+}
+
+void MainWindow::showPlot()
+{
+    PlotDialog dialog(m_solution_vector);
+    dialog.exec();
 }

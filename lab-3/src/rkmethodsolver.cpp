@@ -7,10 +7,10 @@ RKMethodSolver::RKMethodSolver(AbstractEquationSystem *system)
     p_system = system;
 }
 
-std::vector<std::array<double, 4>> RKMethodSolver::solve(double a, double b, int iterations,
+std::vector<std::array<double, 4>> RKMethodSolver::solve(double a, double b, int steps,
                                                          const std::array<double, 3>& initial_conditions)
 {
-    if (iterations <= 0)
+    if (steps <= 0)
     {
         throw std::runtime_error("Count of iterations must be greater than zero");
     }
@@ -19,7 +19,7 @@ std::vector<std::array<double, 4>> RKMethodSolver::solve(double a, double b, int
         throw std::runtime_error("Ending point must be greater than starting point");
     }
 
-    double h = (b - a) / iterations;
+    double h = (b - a) / steps;
     double t = a + h;
 
     std::vector<std::array<double, 4>> result;
@@ -29,7 +29,7 @@ std::vector<std::array<double, 4>> RKMethodSolver::solve(double a, double b, int
     double z_previous = initial_conditions[2];
     double x, y, z;
 
-    for (int i = 1; i <= iterations; i++)
+    for (int i = 1; i <= steps; i++)
     {
         K[0][0] = h * p_system->f1(x_previous, y_previous, z_previous);
         K[1][0] = h * p_system->f2(x_previous, y_previous, z_previous);

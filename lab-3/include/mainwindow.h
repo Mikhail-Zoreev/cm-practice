@@ -7,6 +7,7 @@
 #include <QMessageBox>
 
 #include "abstractequationsystem.h"
+#include "plotdialog.h"
 #include "rkmethodsolver.h"
 #include "sampleequationsystem.h"
 #include "solutiontablemodel.h"
@@ -31,4 +32,5 @@ public:
 
 public slots:
     void solve();
+    void showPlot();
 };

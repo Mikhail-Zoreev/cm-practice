@@ -13,6 +13,6 @@ public:
     RKMethodSolver(AbstractEquationSystem* system);
     ~RKMethodSolver() = default;
 
-    std::vector<std::array<double, 4>> solve(double a, double b, int iterations,
+    std::vector<std::array<double, 4>> solve(double a, double b, int steps,
                                              const std::array<double, 3>& initial_conditions);
 };
